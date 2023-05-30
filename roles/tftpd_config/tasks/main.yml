@@ -1,0 +1,22 @@
+---
+- name: Remove old tftpd-hpa configuration
+  lineinfile:
+    path: /etc/default/tftpd-hpa
+    state: absent
+    regexp: '.*'
+
+- name: Update /etc/default/tftpd-hpa
+  blockinfile:
+    path: /etc/default/tftpd-hpa
+    content: |
+      # /etc/default/tftpd-hpa
+
+      TFTP_USERNAME="tftp"
+      TFTP_DIRECTORY="/srv/tftp"
+      TFTP_ADDRESS=":69"
+      TFTP_OPTIONS="--ipv6 --secure"
+
+- name: Restart tftpd-hpa service
+  systemd:
+    name: tftpd-hpa
+    state: restarted

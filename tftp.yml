@@ -1,0 +1,8 @@
+---
+- name: Installation and configuration of TFTP
+  hosts: myhosts
+  become: true
+
+  roles:
+    - installation_packages
+    - tftpd_config
