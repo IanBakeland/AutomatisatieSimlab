@@ -6,3 +6,4 @@
   roles:
     - installation_packages
     - tftpd_config
+    - ansible_file

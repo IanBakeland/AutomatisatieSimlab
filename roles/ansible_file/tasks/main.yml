@@ -1,0 +1,8 @@
+---
+- name: Create /srv/tftp/ansible.txt file
+  ansible.builtin.copy:
+    dest: /srv/tftp/ansible.txt
+    content: |
+      This file is made via Ansible.
+      Feel free to modify it.
+      Add your own content.
